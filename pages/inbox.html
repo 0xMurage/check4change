@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch list | check for change</title>
+    <link rel="stylesheet" href="/assets/styles/watchlist.css">
+    <link rel="stylesheet" href="/assets/styles/shared.css">
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+
+<div class="container-wrapper">
+    <div class="side-menu ">
+        <div class="nav-brand uppercase">
+            <p><a target="_blank" href="https://ac4c.labskenya.com">AC4C</a></p>
+        </div>
+
+        <div class="nav">
+            <div class="nav-item is-active">
+                <span class="icon icon-user-o"></span>
+                <p class="label">
+                    <a href="#">Watch list</a></p>
+            </div>
+
+            <div class="nav-item ">
+                <span class="icon icon-user-o"></span>
+                <p class="label">
+                    <span id="btn-settings">Settings</span>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <div class="header-menu">
+            <div class="nav-burger-mobile burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+        </div>
+        <div class="main-content">
+
+            <div class="column">
+                <button class="btn btn-primary is-centered" id="main-btn-refresh">
+                    refresh</button>
+            </div>
+
+            <table class="table" id="watchlist-table">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Website</th>
+                    <th>Schedule check interval</th>
+                    <th>last re-check</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                </tbody>
+            </table>
+
+
+            <div class="modal" id="task-modal">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="columns is-multiline">
+                            <div class="column field is-12">
+                                <label for="title">Name</label>
+                                <input type="text" id="title" class="input">
+                            </div>
+                            <div class="column field is-12">
+                                <label for="recheck-duration">Schedule check interval (in minutes)</label>
+                                <input type="number" min="1" max="1440" id="recheck-duration" value="3" class="input">
+                            </div>
+                            <div class="column is-12 has-text-right">
+                                <button class="btn btn-primary is-centered" id="btn-save">add</button>
+                                <button class="btn btn-danger is-centered" id="btn-cancel-save">cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="settings-modal">
+                <div class="modal-content">
+
+                    <div class="modal-body">
+                        <div class="columns is-multiline">
+                            <div class="column is-12 field">
+                                <label for="name">Full name</label>
+                                <input type="text" id="name" class="input">
+                            </div>
+                            <div class="column is-12 field">
+                                <label for="email">Email account</label>
+                                <input type="email" id="email" class="input">
+                            </div>
+                            <div class="column is-12 field">
+                                <label for="pause-duration">Pause duration between emails (in minutes)</label>
+                                <input type="number" min="3" max="1440" id="pause-duration" class="input">
+                            </div>
+
+                            <div class="column is-12 has-text-centered">
+                                <button class="btn btn-primary is-centered" id="btn-save-settings">update</button>
+                                <button class="btn btn-danger is-centered" id="btn-hide-settings">cancel</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<script src="/assets/scripts/watchlist-manager.js"></script>
+</body>
+</html>

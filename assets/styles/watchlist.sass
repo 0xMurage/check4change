@@ -1,0 +1,332 @@
+@import "variables"
+@import "_button"
+@import "_columns"
+@import "_input"
+
+*
+  box-sizing: border-box
+  margin: 0
+  padding: 0
+
+body
+  background-color: $body-background-color
+  color: $body-color
+  width: 100%
+
+.uppercase
+  text-transform: uppercase
+
+.container-wrapper
+  width: 100%
+
+  .side-menu
+    background-color: $side-nav-background-color
+    width: 210px
+    border: none
+    height: 100vh
+    padding: 0
+    overflow: visible
+    position: fixed
+    transition: width 0.3s ease
+    left: 0
+    right: auto
+
+    .nav-brand
+      height: 97px
+      display: block
+      position: relative
+      background-color: $side-nav-brand-background
+      color: $side-nav-brand-color
+      text-align: center
+
+      p
+        transform: translateY(100%)
+        font-weight: 900
+        font-size: 20px
+
+        a
+          color: white
+          text-decoration: none
+          font-size: 29px
+
+    .nav-burger
+      top: 65px
+      width: 32px
+      height: 32px
+      position: absolute
+      z-index: 4
+      transition: background 200ms
+      border-radius: 50px
+      right: -16px
+      background: $main-nav-burger-background-color
+
+    .nav
+      height: 100%
+      padding: 25px 20px
+      background-color: $side-nav-background-color
+
+      .nav-item
+        display: block
+        margin-bottom: 40px
+        align-items: center
+        transition: 300ms
+        cursor: pointer
+        padding: 10px 10px 10px 0
+        font-size: 14px
+
+        .icon
+          display: inline
+          position: relative
+          font-size: 25px
+
+        p.label
+          display: inline
+          font-weight: 500
+          margin-top: 4px
+          position: absolute
+          font-size: 18px
+          text-transform: uppercase
+          padding-left: 6px
+
+          a
+            text-decoration: none
+            color: inherit
+
+        &:hover,
+        &.is-active
+          color: #06847B
+
+    &.is-collapsed
+      width: 80px
+
+      .nav
+        padding: 25px
+        overflow: hidden
+
+        .nav-item
+          p.label
+            display: none
+
+  .content-wrapper
+    width: 100%
+    transition: padding-left 0.5s ease
+    min-height: calc(100vh - 90px)
+    padding: 0 14px 0 234px
+
+    .header-menu
+      height: 40px
+      margin-bottom: 18px
+      width: 100%
+
+      .nav-burger-mobile
+        display: none
+
+
+    &.is-collapsed
+      padding: 0 10px 0 105px
+
+
+.burger
+  color: $nav-burger-color
+  cursor: pointer
+  display: block
+  height: 2rem
+  position: relative
+  width: 2rem
+  margin-left: auto
+
+  span
+    background-color: $nav-burger-color
+    display: block
+    height: 1px
+    left: calc(50% - 8px)
+    position: absolute
+    transform-origin: center
+    transition-duration: 86ms
+    transition-property: background-color, opacity, transform
+    transition-timing-function: ease-out
+    width: 16px
+
+    &:nth-child(1)
+      top: calc(50% - 6px)
+
+    &:nth-child(2)
+      top: calc(50% - 1px)
+
+    &:nth-child(3)
+      top: calc(50% + 4px)
+
+  &.is-active
+    span
+      &:nth-child(1)
+        transform: translateY(5px) rotate(45deg)
+
+      &:nth-child(2)
+        display: none
+
+      &:nth-child(3)
+        transform: translateY(-5px) rotate(-45deg)
+
+//TABLE
+.table
+  width: 100%
+  border-collapse: collapse
+  border-spacing: 0
+  background: $table-background
+  color: $table-color
+  font-family: Helvetica, Arial, sans-serif
+
+  td, th
+    border: 1px solid $table-border
+    height: 30px
+    padding: 6px
+  th
+    font-weight: bold
+    background: $table-header-background
+    padding: 10px
+  tbody tr
+    cursor: pointer
+    &:hover
+      background: $table-hover-background
+      color: $table-hover-color
+
+//      modal
+.modal
+  display: none
+  z-index: 1000
+  position: fixed
+  margin-top: 0
+  margin-right: 0
+  margin-bottom: 0
+  top: 0
+  left: 0
+  overflow-y: visible
+  overflow-x: hidden
+  width: 100%
+  height: 100%
+  background: $modal-overlay-background
+  .modal-content
+    position: relative
+    padding: 20px
+    background: $modal-background
+    margin: 15% auto
+    border: 1px solid $modal-border-color
+    width: $modal-width
+    animation-name: animate-modal
+    animation-duration: 0.5s
+    min-height: $modal-min-height
+    .modal-header
+      padding: 2px 16px
+      .close
+        color: $modal-close-button-color
+        float: right
+        font-size: 22px
+        font-weight: bold
+        margin-top: -18px
+        margin-right: -22px
+        &:hover,
+        &:focus
+          color: black
+          cursor: pointer
+    .modal-body
+      padding: 2px 16px
+  &.show
+    display: block
+@keyframes animate-modal
+  from
+    opacity: 0
+    width: 0
+    height: 0
+  to
+    width: $modal-width
+    height: $modal-min-height
+    opacity: 1
+
+
+
+// Settings popup
+.popup-overlay
+  display: none
+  width: 330px
+  height: auto
+  min-height: 80vh
+  max-height: 100%
+  z-index: 1000
+  position: fixed
+  margin-top: 0
+  margin-right: 0
+  margin-bottom: 0
+  top: 20px
+  overflow-y: visible
+  overflow-x: hidden
+  border-width: 1px 0 1px 1px
+  background: $modal-background
+
+  &.right
+    right: 6px
+    box-shadow: 18px 0 18px 1px rgba(0, 0, 0, 0.1)
+    -moz-box-shadow: 18px 0 18px 1px rgba(0, 0, 0, 0.1)
+    -webkit-box-shadow: 18px 0 18px 1px rgba(0, 0, 0, 0.1)
+  &.is-active
+    display: inherit
+  .popup-header
+    margin-bottom: 0 !important
+    padding: 14px 14px 0
+
+    .close
+      line-height: 1.3rem
+      margin-left: 10px
+      cursor: pointer
+      padding: 5px
+      float: right
+      font-size: 28px
+      margin-top: -21px
+      &:hover
+        color: black
+        border-radius: 4px
+    .popup-title
+      font-weight: 900
+      text-transform: uppercase
+      text-align: center
+      margin-top: -15px
+  .popup-body
+    margin-bottom: 120px
+    padding: 16px 20px 0
+
+@media only screen and (max-width: 768px)
+  .nav-burger-mobile
+    display: block !important
+    background: $mobile-burger-background
+
+    span
+      background: $mobile-burger-color
+  .container-wrapper
+    .side-menu
+      width: 63px
+
+      .nav-brand
+        display: none
+
+      .nav-burger
+        display: none
+
+      .nav
+        padding: 17px
+        margin-top: 32px
+
+        .nav-item
+          p.label
+            display: none
+
+      &.is-collapsed
+        display: none
+
+    .content-wrapper
+      padding: 0 10px 0 83px
+
+      &.is-fullwidth
+        padding: 0
+        width: 100%
+
+        .main-content
+          padding: 5px

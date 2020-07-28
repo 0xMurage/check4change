@@ -1,0 +1,34 @@
+@mixin selectedStyles
+  outline: 3px solid #c90d00 !important
+  z-index: 0 !important
+  height: auto
+
+
+//for elements already selected
+.selected-css-df3joe2jo
+  @include selectedStyles
+
+a.selected-css-df3joe2jo
+  &:focus,
+  &:visited,
+  &:hover
+    @include selectedStyles
+
+
+
+@mixin highlightStyles
+  outline: 2px dashed #e91f6e !important
+  z-index: 0 !important
+  cursor: pointer
+
+// for elements highlighting purpose
+
+a.highlight-css-34ji43f
+  &:focus,
+  &:visited,
+  &:hover
+    @include highlightStyles
+
+.highlight-css-34ji43f
+  @include highlightStyles
+
